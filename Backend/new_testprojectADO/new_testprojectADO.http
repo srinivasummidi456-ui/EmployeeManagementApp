@@ -1,0 +1,6 @@
+@new_testprojectADO_HostAddress = http://localhost:5055
+
+GET {{new_testprojectADO_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

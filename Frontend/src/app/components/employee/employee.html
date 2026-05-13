@@ -1,0 +1,115 @@
+
+<div class="container">
+
+  <h1>Employee Management</h1>
+
+  <!-- Employee Form -->
+
+  <div class="form-container">
+
+    <div class="form-group">
+      <label>Employee Name</label>
+
+      <input
+        type="text"
+        name="empName"
+        [(ngModel)]="employee.empName"
+      />
+    </div>
+
+    <div class="form-group">
+      <label>Salary</label>
+
+      <input
+        type="number"
+        name="salary"
+        [(ngModel)]="employee.salary"
+      />
+    </div>
+
+    <div class="form-group">
+      <label>Address</label>
+
+      <input
+        type="text"
+        name="address"
+        [(ngModel)]="employee.address"
+      />
+    </div>
+
+    <div class="form-group">
+      <label>Department</label>
+
+      <input
+        type="text"
+        name="department"
+        [(ngModel)]="employee.department"
+      />
+    </div>
+
+    <div class="button-group">
+
+      <button type="button" (click)="addEmployee()">
+        Add Employee
+      </button>
+
+    </div>
+
+  </div>
+
+  <br>
+
+ 
+
+  <!-- Employee Table -->
+
+  <div class="table-container">
+
+    <table border="1">
+
+      <thead>
+
+        <tr>
+          <th>EmpId</th>
+          <th>EmpName</th>
+          <th>Salary</th>
+          <th>Address</th>
+          <th>Department</th>
+          <th>Action</th>
+        </tr>
+
+      </thead>
+
+      <tbody>
+
+        <tr *ngFor="let emp of employees">
+
+          <td>{{ emp.empId }}</td>
+          <td>{{ emp.empName }}</td>
+          <td>{{ emp.salary }}</td>
+          <td>{{ emp.address }}</td>
+          <td>{{ emp.department }}</td>
+            <td>
+                <button (click)="deleteEmployee(emp.empId)" style="color:red;">
+                🗑 Delete
+                </button>
+            </td>
+        </tr>
+
+        <!-- No Records -->
+
+        <tr *ngIf="employees.length === 0">
+
+          <td colspan="5">
+            No Employees Found
+          </td>
+
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+</div>
