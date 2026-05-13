@@ -10,7 +10,7 @@
       '.'
     ]
 
-# Push Docker image
+#  Push Docker image
 - name: 'gcr.io/cloud-builders/docker'
   args:
     [
