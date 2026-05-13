@@ -36,7 +36,7 @@ app.UseSwagger();
 
 app.UseSwaggerUI();
 
-// IMPORTANT
+// IMPORTANT test
 app.UseCors("AllowAngular");
 
 // DISABLE HTTPS REDIRECTION FOR DOCKER
