@@ -1,6 +1,6 @@
 ﻿steps:
 
-# Build Docker image
+# Build  Docker image 
 - name: 'gcr.io/cloud-builders/docker'
   dir: 'Backend/new_testprojectADO'
   args:
