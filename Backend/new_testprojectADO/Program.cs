@@ -2,8 +2,15 @@ using new_testprojectADO.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// IMPORTANT FOR DOCKER
+// ===============================
+// RUN API INSIDE DOCKER
+// ===============================
+
 builder.WebHost.UseUrls("http://0.0.0.0:8080");
+
+// ===============================
+// SERVICES
+// ===============================
 
 builder.Services.AddControllers();
 
@@ -13,9 +20,9 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddScoped<EmployeeService>();
 
-// ======================
-// CORS
-// ======================
+// ===============================
+// CORS CONFIGURATION
+// ===============================
 
 builder.Services.AddCors(options =>
 {
@@ -31,19 +38,26 @@ builder.Services.AddCors(options =>
 
 var app = builder.Build();
 
-// ENABLE SWAGGER ALWAYS
+// ===============================
+// MIDDLEWARE PIPELINE
+// ===============================
+
+// Swagger
 app.UseSwagger();
 
 app.UseSwaggerUI();
 
-// IMPORTANT test data
+// CORS
 app.UseCors("AllowAngular");
 
-// DISABLE HTTPS REDIRECTION FOR DOCKER
-// app.UseHttpsRedirection();
-
+// Authorization
 app.UseAuthorization();
 
+// Controllers
 app.MapControllers();
+
+// ===============================
+// START APPLICATION
+// ===============================
 
 app.Run();
